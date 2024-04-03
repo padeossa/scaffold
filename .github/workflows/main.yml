@@ -1,0 +1,32 @@
+name: Prueba de aplicación Python con github actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Instalar dependencias
+      run: make install
+
+    - name: Lint con pylint
+      run: make lint
+
+    - name: Probar con pytest
+      run: make test
+
+    -name: formatear el codigo
+      run: make format
+
