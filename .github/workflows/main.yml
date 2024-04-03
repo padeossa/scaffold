@@ -27,6 +27,6 @@ jobs:
     - name: Probar con pytest
       run: make test
 
-    -name: formatear el codigo
+    - name: formatear el codigo
       run: make format
-
+      
